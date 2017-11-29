@@ -111,6 +111,10 @@ int main( int argc, char** argv)
         mysave( "results/gx"+to_string(f), gx);
         mysave( "results/gy"+to_string(f), gy);
         mysave( "results/FIN_"+to_string(f), img);
+        saveplot( "results/HIST_VERT_"+to_string(f), normx, 0, yData.cols, 0, 256);
+        saveplot( "results/HIST_HORZ_"+to_string(f), normy, 0, yData.cols, 0, 256);
+        saveplot( "results/HIST_CAR_"+to_string(f), car, 0, yData.cols, 0, 256);
+
     }
 
     return 0;
