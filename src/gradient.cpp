@@ -14,9 +14,11 @@ int main( int argc, char** argv)
         Mat img_gray, gx, gy;
 
         cvtColor( img, img_gray, CV_BGR2GRAY);
-        Sobel( img_gray, gx, CV_16S, 1,0,3,1,0,BORDER_DEFAULT);
+        GaussianBlur( img_gray, img_gray, Size( 19, 19 ), 0, 0 );
+
+        Sobel( img_gray, gx, CV_16S, 1,0,3,3,0,BORDER_DEFAULT);
         gx = (gx + 128)/2;
-        Sobel( img_gray, gy, CV_16S, 0,1,3,1,0,BORDER_DEFAULT);
+        Sobel( img_gray, gy, CV_16S, 0,1,3,3,0,BORDER_DEFAULT);
         gy = (gy + 128)/2;
 
         mysave( "gradients/GX_"+string(argv[i]), gx);
